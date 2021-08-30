@@ -1,24 +1,23 @@
-import logo from './logo.svg';
+import { useState } from 'react';
 import './App.css';
+import Header from './components/Header';
+import ItemsList from './components/ItemList';
+import { PETS } from './shared/glovalVars';
 
 function App() {
+  const [category, setCategory] = useState(PETS);
+
+  console.log(category)
+
+  const changeCategory = (category) => setCategory(category);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Header category={category} change={changeCategory} />
+      <main>
+        <ItemsList />
+      </main>
+    </>
   );
 }
 
