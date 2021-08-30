@@ -4,21 +4,20 @@ import upArrow from '../assets/up-arrow.svg';
 
 const Item = (props) => {
   const [showDetails, setShowDetails] = useState(false);
+
+  //render different arrow icons depends on component state
   const arrowIcon = showDetails ? upArrow : downArrow;
 
   const toggleShowDetailsHandler = () =>
     setShowDetails((curState) => !curState);
 
+  //render different class list depens on component state
   let detailsClasses = ['item-description'];
   showDetails && detailsClasses.push('full-description');
 
   return (
     <div className="item">
-      <img
-        className="item-img"
-        src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/567707/dog.png"
-        alt="item"
-      />
+      <img className="item-img" src={props.img} alt="item" />
       <div className={detailsClasses.join(' ')}>
         <span
           className="item-description__showBtn"
@@ -26,13 +25,10 @@ const Item = (props) => {
         >
           <img src={arrowIcon} alt="arrow icon" />
         </span>
-        <h3>Doggo Dog</h3>
+        <h3>{props.title}</h3>
         {showDetails && (
           <>
-            <p>
-              Sweet, friendly, well-socialized, affectionate. Loves other dogs
-              and is very active and playful with other dogs.
-            </p>
+            <p>{props.desc}</p>
             <button className="btn btn-wide">Go for it!</button>
           </>
         )}
