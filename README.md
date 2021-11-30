@@ -1,1 +1,2 @@
-I used react library for this test task. I used react hooks and functional components approach. I created components based on project structure: component Header for header part and component ItemList for main content part. Also I create separate Item component to be able manage state of evere item separately.
+## About:
+The project was created for as a test assignment during hiring process. There are was a time limit in 3 hours.
